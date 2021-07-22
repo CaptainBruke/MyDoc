@@ -1,0 +1,231 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>e3cd869e-89a7-4681-bff0-f9ac999a4222</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\third\home\**" />
+    <Content Remove="wwwroot\third\home\**" />
+    <EmbeddedResource Remove="wwwroot\third\home\**" />
+    <None Remove="wwwroot\third\home\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bruke.BussinesService\Bruke.BusinessService.csproj" />
+    <ProjectReference Include="..\Bruke.Code\Bruke.Code.csproj" />
+    <ProjectReference Include="..\Bruke.EntityFrameWork\Bruke.EntityFrameWork.csproj" />
+    <ProjectReference Include="..\Bruke.IBusinessService\Bruke.IBusinessService.csproj" />
+    <ProjectReference Include="..\Bruke.Model\Bruke.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\third\layer\layer.js" />
+    <None Include="wwwroot\third\layer\mobile\layer.js" />
+    <None Include="wwwroot\third\login\js\jquery-1.10.2.js" />
+    <None Include="wwwroot\third\login\js\jquery.min.js" />
+    <None Include="wwwroot\third\login\js\jquery.pure.tooltips.js" />
+    <None Include="wwwroot\third\login\js\snow.js" />
+    <None Include="wwwroot\third\login\js\spop.min.js" />
+    <None Include="wwwroot\third\login\js\verifyCode.js" />
+    <None Include="wwwroot\third\UEditor\third-party\codemirror\codemirror.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\highcharts-more.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\highcharts-more.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\highcharts.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\highcharts.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\annotations.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\annotations.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\canvas-tools.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\data.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\data.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\drilldown.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\drilldown.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\exporting.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\exporting.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\funnel.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\funnel.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\heatmap.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\heatmap.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\map.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\map.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\themes\dark-blue.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\themes\dark-green.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\themes\gray.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\themes\grid.js" />
+    <None Include="wwwroot\third\UEditor\third-party\highcharts\themes\skies.js" />
+    <None Include="wwwroot\third\UEditor\third-party\jquery-1.10.2.js" />
+    <None Include="wwwroot\third\UEditor\third-party\jquery-1.10.2.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\jquery-1.10.2.min.map" />
+    <None Include="wwwroot\third\UEditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <None Include="wwwroot\third\UEditor\third-party\SyntaxHighlighter\shCore.js" />
+    <None Include="wwwroot\third\UEditor\third-party\video-js\font\vjs.svg" />
+    <None Include="wwwroot\third\UEditor\third-party\video-js\video-js.swf" />
+    <None Include="wwwroot\third\UEditor\third-party\video-js\video.dev.js" />
+    <None Include="wwwroot\third\UEditor\third-party\video-js\video.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\Uploader.swf" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.custom.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.custom.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.flashonly.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.html5only.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <None Include="wwwroot\third\UEditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <None Include="wwwroot\third\UEditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <None Include="wwwroot\third\UEditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <None Include="wwwroot\third\UEditor\_src\adapter\autosave.js" />
+    <None Include="wwwroot\third\UEditor\_src\adapter\editor.js" />
+    <None Include="wwwroot\third\UEditor\_src\adapter\editorui.js" />
+    <None Include="wwwroot\third\UEditor\_src\adapter\message.js" />
+    <None Include="wwwroot\third\UEditor\_src\api.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\ajax.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\browser.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\domUtils.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\dtd.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\Editor.defaultoptions.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\Editor.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\EventBase.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\filternode.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\filterword.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\htmlparser.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\keymap.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\loadconfig.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\localstorage.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\node.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\plugin.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\Range.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\Selection.js" />
+    <None Include="wwwroot\third\UEditor\_src\core\utils.js" />
+    <None Include="wwwroot\third\UEditor\_src\editor.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\anchor.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autofloat.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autoheight.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autolink.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autosave.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autosubmit.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autotypeset.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\autoupload.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\background.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\basestyle.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\blockquote.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\catchremoteimage.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\charts.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\cleardoc.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\contextmenu.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\convertcase.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\copy.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\customstyle.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\defaultfilter.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\directionality.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\dragdrop.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\elementpath.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\enterkey.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\fiximgclick.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\font.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\formatmatch.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\horizontal.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\iframe.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\image.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\indent.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\insertcode.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\insertfile.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\inserthtml.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\insertparagraph.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\justify.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\keystrokes.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\lineheight.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\link.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\list.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\music.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\pagebreak.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\paragraph.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\paste.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\preview.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\print.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\puretxtpaste.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\removeformat.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\rowspacing.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\scrawl.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\searchreplace.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\section.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\selectall.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\serverparam.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\shortcutmenu.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\simpleupload.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\snapscreen.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\source.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\table.action.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\table.cmds.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\table.core.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\table.sort.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\template.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\time.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\undo.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\video.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\webapp.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\wordcount.js" />
+    <None Include="wwwroot\third\UEditor\_src\plugins\wordimage.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\autotypesetbutton.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\autotypesetpicker.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\breakline.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\button.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\cellalignpicker.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\colorbutton.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\colorpicker.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\combox.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\dialog.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\mask.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\menu.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\menubutton.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\message.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\multiMenu.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\pastepicker.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\popup.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\separator.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\shortcutmenu.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\splitbutton.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\stateful.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\tablebutton.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\tablepicker.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\toolbar.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\ui.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\uibase.js" />
+    <None Include="wwwroot\third\UEditor\_src\ui\uiutils.js" />
+  </ItemGroup>
+
+</Project>

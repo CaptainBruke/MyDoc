@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Bruke.Model
+{
+    public class Book_Edit_Input_Model: Book_Add_Input_Model
+    {
+        public int id { get; set; }
+    }
+}

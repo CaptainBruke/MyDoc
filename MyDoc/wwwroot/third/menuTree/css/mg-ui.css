@@ -1,0 +1,134 @@
+body{width: 100%;height: 100%;margin: 0;padding: 0;}
+a:focus{outline:none;}
+ul{list-style: none;list-style-type: none;}
+.tree li a{white-space: nowrap;}
+.tree-menu li > ul{background-color: #f1f1f1;}
+.tree-menu li li li li a{padding-left: 68px;}
+.tree-menu li li li li li a{padding-left: 88px;}
+.tree-menu li li li li li li a{padding-left: 108px;}
+.tree-menu li li li li li li li a{padding-left: 128px;}
+.tree-menu li li li li li li li li a{padding-left: 148px;}
+.tree-menu li li li li li li li li li a{padding-left: 168px;}
+.tree-menu li li li li li li li li li li a{padding-left: 188px;}
+.table td, .table th {vertical-align: middle;}
+#tabDocInfo{position: absolute; bottom: 0;top: 60px;overflow-y: auto; right: 0; left: 10px;}
+#tabOnlineDebug .param-response-box{position: absolute; bottom: 0;top: 100px;overflow-y: auto; right: 0; left: 10px;}
+.tab-online-debug-page{overflow-y: auto;position: absolute; bottom: 0;top: 10px; right: 0; left: 10px;}
+.tab-online-debug-page .title-info{padding-bottom: 10px;}
+.tab-online-debug-page .title-info .btn{margin-right: 20px;}
+.tab-online-debug-page .title-info .text{padding-bottom: 10px;}
+
+.local-storage{display: none;}
+
+/**lable的覆盖样式*/
+.label{font-size: 100%;}
+.label-warning {background-color: #f9f5ee; color: #f1a325;}
+label{font-weight: normal;}
+
+.nav.gray{background-color: #f1f1f1;margin-bottom: 10px;}
+
+.doc-table tr .info{text-align: right; width: 100px;}
+.setting-table tr .info{text-align: right; max-width: 150px;}
+.show-doc span{color: #aaa;}
+
+.mgresizebleW{z-index: 90;height: 100%; width: 10px; cursor: e-resize;}
+.ui-resizable-handle {display: block;font-size: 0.1px;position: absolute;}
+#resizebleLeftRight{left: 360px;}
+.unselect{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+
+#homePageDashboard{overflow-y: auto;bottom: 0;top: 0;right: 0;left: 0;position: absolute;overflow-x: hidden;padding: 10px;}
+#homePageDashboard .panel-body{padding: 10px;}
+
+#homePageLi{margin-top: 5px;}
+
+.left-body{
+	width: 360px; height:100%; position: fixed; top: 0; bottom: 0; left: 0;
+}
+.left-header{
+	background: #3280fc;width: 100%; height:60px;line-height:60px;
+	position: absolute; top: 0; bottom: 0; left: 0;text-align: center;
+}
+.left-header .logo{
+	font-size: 30px;color: #fff;
+}
+.left-header .icon-bars{
+	font-size: 24px;float: right;margin: 18px 18px 0 0;color: #fff;cursor: pointer;
+}
+.left-container{
+	width: 100%;position: absolute;background: #f1f1f1;color: rgba(163, 175, 183, .9);
+	top: 60px; bottom: 0; left: 0; overflow-y: auto; padding: 10px;
+}
+.left-container .projects{border: 0px; border-radius: 0px;}
+
+.right-container{
+	position: fixed;top: 0px; bottom: 0; left: 360px; right: 0;padding: 10px;
+}
+
+#docResponseModel td:first-child{width: 100px;}
+#docResponseExample td:first-child{width: 100px;}
+
+.modal-table-box{margin-top: 10px; max-height: 500px;overflow-y: auto;}
+.modal-table-box{list-style: none;}
+.modal-table-box ul{padding-left: 10px;}
+.modal-table-box li{padding: 10px 15px; margin: 0 10px 10px 0; background-color: #f1f1f1;cursor: pointer;}
+.modal-table-box li.checked{background-color: #8666b8;color:#fff;}
+
+#exportDocumentText{height: 350px;}
+
+/* 在线调试框样式 */
+#tabParamBody .tab-content{padding-top: 10px;}
+
+.post-url-box{padding: 10px 0;}
+.post-url-box .input-group-btn:nth-child(2) button{border-right: 0;border-radius: 0;}
+.post-url-box .send-request .hide{display: none;}
+
+.param-box{}
+.param-box .panel-collapse{padding: 10px;}
+.param-box .nav{background-color: #f1f1f1;}
+/* .param-box .nav > li > *{padding: 8px 25px;} */
+.param-box .nav > li > span{position: relative; display: block;background-color: #ccc;padding: 9px 25px;}
+.param-box .nav > .form-to-url{position: relative; display: block;padding: 10px 0 0 25px;}
+.param-box .nav > .form-to-url label{margin: 0;}
+.param-box .nav > .form-to-url input{margin: 0;}
+.param-box .tab-content .tab-param-pane{padding: 10px 10px 0 10px;}
+.param-box .table.param-table td, .param-box .table.param-table th{padding: 4px 5px;}
+.param-box .param-table td:first-child{width: 250px;}
+.param-box .param-table tbody td:nth-child(2){border-right: 0;}
+.param-box .param-table tbody td:nth-child(3){border-left: 0;padding: 0 10px 0 0;width: 10px;}
+.param-box .param-table tbody td:nth-child(3) i{cursor: pointer;color: #ccc;}
+.param-box .param-table tbody td:nth-child(3) i:hover{color: #888;}
+.param-box .param-table tbody tr.base td:last-child{display: none;}
+#bulkEditHeaderCheck{margin-left: 10px;}
+#bulkEditHeader,#bulkEditForm{display: none;}
+
+.response-box{margin-top: 20px;}
+.response-box .nav > li > *{padding: 8px 25px;}
+.response-box .nav > li span{position: relative; display: block;padding: 9px 25px;}
+.response-box .nav > li.info span{background-color: #ccc;}
+.response-box .nav > li.right{float: right;}
+.response-box .nav > li.right i{color: #3280fc;}
+.response-box .nav{background-color: #f1f1f1;}
+.response-box .tab-content .tab-response-pane{padding: 10px;}
+
+#responseBodyJsonIframe{width: 100%;height: 300px;border: 0;}
+
+/* S-模拟请求 */
+#tabSimulationResult{padding: 10px 0;}
+/* E-模拟请求 */
+
+/* S-JSON展示的样式 */
+pre.json{margin-top:0px;margin-bottom:0px;}
+pre.json .canvas{font:10pt georgia;background-color:#ececec;color:#000000;border:1px solid #cecece;}
+pre.json .object-brace{color:#00aa00;font-weight:bold;}
+pre.json .array-brace{color:#0033ff;font-weight:bold;}
+pre.json .property-name{color:#cc0000;font-weight:bold;}
+pre.json .string{color:#007777;}
+pre.json .number{color:#aa00aa;}
+pre.json .boolean{color:#0000ff;}
+pre.json .function{color:#aa6633;text-decoration:italic;}
+pre.json .null{color:#0000ff;}
+pre.json .comma{color:#000000;font-weight:bold;}
+pre.json .annotation{color:#aaa;}
+pre img{cursor: pointer;}
+/* E-JSON展示的样式 */
+

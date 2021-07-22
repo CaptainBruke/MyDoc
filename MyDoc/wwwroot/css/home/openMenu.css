@@ -1,0 +1,57 @@
+﻿#drawing {
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    overflow: auto;
+    display: block;
+}
+
+body, div, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 12px/1.5 \5fae\8f6f\96c5\9ed1;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu ul {
+    position: absolute;
+    float: left;
+    border: 1px solid #979797;
+    background: #f1f1f1;
+    padding: 2px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
+    width: 150px;
+    overflow: hidden;
+}
+
+    .menu ul li {
+        float: left;
+        clear: both;
+        height: 24px;
+        cursor: pointer;
+        line-height: 24px;
+        white-space: nowrap;
+        padding: 0 13px;
+        width: 100%;
+        display: inline-block;
+    }
+
+        .menu ul li:hover {
+            background: #E6EDF6;
+            border: 1px solid #B4D2F6;
+        }
+
+.skin {
+    width: 300px;
+    padding: 2px;
+    visibility: hidden;
+    position: absolute;
+}

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bruke.Code\Bruke.Code.csproj" />
+    <ProjectReference Include="..\Bruke.EntityFrameWork\Bruke.EntityFrameWork.csproj" />
+    <ProjectReference Include="..\Bruke.IBusinessService\Bruke.IBusinessService.csproj" />
+    <ProjectReference Include="..\Bruke.Model\Bruke.Model.csproj" />
+  </ItemGroup>
+
+</Project>

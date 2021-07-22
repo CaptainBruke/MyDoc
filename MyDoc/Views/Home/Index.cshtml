@@ -1,0 +1,178 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>MyDoc 文档系统</title>
+    <link rel="stylesheet" href="~/third/menuTree/css/zui.min.css" />
+    <link rel="stylesheet" href="~/third/menuTree/css/zui.min.css" />
+    <link rel="stylesheet" href="~/third/menuTree/css/zui.dashboard.min.css" />
+    <link rel="stylesheet" href="~/third/menuTree/css/mg-ui.css" />
+    <link rel="stylesheet" href="~/css/home/openMenu.css" rel="stylesheet" />
+    <link href="~/css/iconfont.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="left-body" id="leftContent">
+        <div class="left-header">
+            <span class="logo" id="logoText">MyDoc 文档系统</span>
+            <i class="icon icon-bars" id="changeContentWidth"></i>
+        </div>
+        <div class="scrollbar-hover left-container">
+            <!-- 样式类可选：tree-menu tree-folders tree-chevrons tree-angles -->
+            <ul class="tree tree-lines tree-menu projects">
+                <li>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchDocInput">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="searchDocBt">搜索</button>
+                        </span>
+                    </div>
+                </li>
+                <li id="homePageLi"><a href="javascript:void(0)" path=""><i class="icon-home"></i> 控制台</a></li>
+            </ul>
+            <div id="apiPathTree" style="min-height: 400px;" data-type="0" data-id="0">
+                @* 直角：tree projects tree-lines tree-angles *@
+                @* 导航：tree projects tree-menu *@
+                @* 加形：tree projects tree-lines *@
+                @* 文件夹：tree projects tree-lines tree-folders *@
+                @* V形：tree projects tree-lines tree-chevrons *@
+                <ul class="tree projects tree-lines">
+                    @*<li data-idx="1" data-id="1" class="has-list open in">
+                            <i class="list-toggle icon"></i>
+                            <a href="#">开放接口</a>
+                            <ul data-idx="1">
+                                <li data-idx="1" data-id="1-1" class="has-list open in">
+                                    <i class="list-toggle icon"></i><a href="#">客户信息控制器</a>
+                                    <ul data-idx="1">
+                                        <li m-id="1_1_1" data-idx="1" data-id="1-1-1">
+                                            <a href="#" class="show-doc" path="123">C# 类中索引器的使用 -  - 博客园<span></span></a>
+                                        </li>
+                                        <li m-id="1_1_1" data-idx="1" data-id="1-1-1">
+                                            <a href="#" class="show-doc" path="32432">12.docker  atlassian-confluence  WiKi文档环境<span></span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-idx="1" data-id="1-1" class="has-list open in">
+                                    <i class="list-toggle icon"></i><a href="#">客户信息控制器</a>
+                                    <ul data-idx="1">
+                                        <li m-id="1_1_1" data-idx="1" data-id="1-1-1">
+                                            <a href="#" class="show-doc" path="1/openApi/case/create.post">C#每天进步多一点每天进步多一点 - 博客园<span></span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="resizebleLeftRight" class="ui-resizable-handle mgresizebleW"></div>
+    <div class="right-container" id="rightContent">
+        <div class="tab-page tab-home-page">
+            <div id="homePageDashboard" class="dashboard dashboard-draggable" data-height="290">
+                <section class="row">
+                    <div class="col-md-6 col-sm-6">
+                        @*<div class="panel" data-id="1">
+                                <div class="panel-heading">
+                                    <div class="title">配置中心</div>
+                                </div>
+                                <div class="panel-body" style="">
+                                    <div class="content">
+                                        <table class="table table-bordered setting-table">
+                                            <tr>
+                                                <td class="info">树形菜单展示方式</td>
+                                                <td>
+                                                    <label><input type="radio" name="treeShowType" value="1">直角</label>
+                                                    <label><input type="radio" name="treeShowType" value="2">导航</label>
+                                                    <label><input type="radio" name="treeShowType" value="3">加减</label>
+                                                    <label><input type="radio" name="treeShowType" value="4">文件夹</label>
+                                                    <label><input type="radio" name="treeShowType" value="5">V型</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div align="center">
+                                                        <input class="btn btn-primary" type="button" value="保存" style="color:white;">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="tab-page tab-document hide">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-tab href="#tabDocInfo">笔记</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane tab-document-pane active" id="tabDocInfo" style="padding-right:20px;padding-left:10px;">
+                    <input id="articleId" type="hidden" value="" />
+                    <input id="bookId" type="hidden" value="" />
+                    <div style="flex:inherit">
+                        <input type="text" id="docTitleInput" style="margin-bottom: 2px;width:60%;">
+                        @*<input type="button" id="editArticle" value="编辑" style="margin-bottom: 2px;width: 60px;">*@
+                        <input type="button" id="saveArticle" value="保存" onclick="SaveArticleButton()"  style="margin-bottom: 2px;width: 60px;">
+                    </div>
+                    <div id="editor" type="text/plain" style="width:100%;height:700px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--自定义右键菜单-->
+    <div class="skin menu">
+        <ul>
+            <li><strong>HTML 学习</strong></li>
+            <li>HTML 元素</li>
+            <li>HTML 属性</li>
+            <li>HTML 标题</li>
+            <li>HTML 段落</li>
+            <li>HTML 图像</li>
+            <li>HTML 表格</li>
+            <li>HTML 列表</li>
+            <li>HTML 布局</li>
+            <li>表单</li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript" src="~/third/menuTree/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/zui.min.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/zui.dashboard.min.js"></script>
+
+    <script>
+        mgUiData0 = {};
+        mgUiData1 = {};
+        mgUiDataArr = [mgUiData0, mgUiData1];
+    </script>
+
+    <script type="text/javascript" src="~/third/menuTree/js/formatjson.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/toast.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/common.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/mgResizeble.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/mg-ui-tree.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/mg-ui-tag.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/mg-ui-debug.js"></script>
+    <script type="text/javascript" src="~/third/menuTree/js/mg-ui.js"></script>
+
+    <script src="~/js/home/openMenu.js"></script>
+    <script src="~/js/home/home.js"></script>
+
+    <script src="~/third/UEditor/ueditor.config.js"></script>
+    <script src="~/third/UEditor/editor_api.js"></script>
+    <script src="~/third/UEditor/zh-cn.js"></script>
+
+    <script type="text/javascript">
+        //实例化编辑器
+        var ue = UE.getEditor('editor');
+    </script>
+    <script type="text/javascript" src="~/third/layer/layer.js"></script>
+
+</body>
+</html>
+
