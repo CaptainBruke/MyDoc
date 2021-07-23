@@ -28,6 +28,15 @@ EF Core的MySQL提供程序。
 > * [Docker](https://docs.docker.com/)
 Docker 更快捷发布
 
+### 一些截图
+![alt 登录](login.png)  
+![alt 主界面](index.png)  
+
+
+### 特别感谢
+> * 感谢 [小飞象](https://gitee.com/yfq2010/login-register-html)漂亮好用的登录注册界面
+> * 感谢[暮光：城中城](https://gitee.com/zyplayer/swagger-mg-ui?_from=gitee_search)漂亮好用的树型目录
+
 ### 后期计划：
 > * 使用EF Code First 无需使用sql进行创建数据库
 > * ASP.Net 3.1 升级为 .Net 5
