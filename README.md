@@ -1,14 +1,15 @@
-我的文档。基于.net core3.1 + UEditor + JQuery 。用于个人在线文档，包含登录、笔记本管理、笔记添加、修改、删除等功能
+
 
 # MyDoc
-文档信息、笔记管理
-ASP.NET Core 3.1 + EF Core + UEditor + JQuery
+文档信息、笔记管理  
+ASP.NET Core 3.1 + EF Core + UEditor + JQuery  
+用于个人在线文档，包含登录、笔记本管理、笔记添加、修改、删除等功能  
 
 ### 预览
 > 演示环境：
-  Web：[http://120.25.76.97:83/](http://120.25.76.97:83/) （账号：test 密码：123456）  或者自行注册，邀请码:MyDoc
-  环境：CentOs + docker + mysql
-  配置：单核、2G内存、1M带宽
+  Web：[http://120.25.76.97:83/](http://120.25.76.97:83/) （账号：test 密码：123456）  或者自行注册，邀请码:MyDoc  
+  环境：CentOs + docker + mysql  
+  配置：单核、2G内存、1M带宽  
   
 
 ### 项目构建
@@ -19,7 +20,7 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 > * [ASP.NET Core入门](https://docs.microsoft.com/zh-cn/aspnet/core/getting-started/?view=aspnetcore-2.2&tabs=windows)  
 ASP.NET Core入门必备。
 > * [EF Core入门](https://docs.microsoft.com/zh-cn/ef/core/get-started/)  
-搭配上ASP.NET Core入门，这两个文档涵盖了项目中所有的知识点。
+搭配上ASP.NET Core入门，这两个文档涵盖了项目中所有的知识点：面向接口编程，依赖注入，异步编程等。
 > * [AutoMapper](https://automapper.readthedocs.io/en/latest/)  
 对象的映射工具。
 > * [Pomelo.EntityFrameworkCore.MySql](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)  
