@@ -29,8 +29,8 @@ EF Core的MySQL提供程序。
 Docker 更快捷发布
 
 ### 一些截图
-![alt 登录](login.png)  
-![alt 主界面](index.png)  
+![alt 登录](https://gitee.com/CaptainBruke/my-doc/raw/master/login.png)  
+![alt 主界面](https://gitee.com/CaptainBruke/my-doc/raw/master/index.png)  
 
 
 ### 特别感谢
