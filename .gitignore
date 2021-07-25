@@ -363,4 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 
-MyDoc/appsettings.Development.json
+MyDoc/MyDoc/*.Development.json
+
+#上传图片，文件路径
+MyDoc/wwwroot/upload

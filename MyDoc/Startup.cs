@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UEditor.Core;
 
 namespace MyDoc
 {
@@ -55,8 +56,10 @@ namespace MyDoc
             //数据库连接
             services.AddDbContext<MyDocDbContext>(options =>
                 //options.UseMySql(ServerVersion.AutoDetect(Configuration.GetConnectionString("mydoc"))));
-                options.UseMySql(Configuration.GetConnectionString("mydoc"),ServerVersion.AutoDetect(Configuration.GetConnectionString("mydoc"))));
+                options.UseMySql(Configuration.GetConnectionString("mydoc"), ServerVersion.AutoDetect(Configuration.GetConnectionString("mydoc"))));
 
+            //百度编辑器后端服务
+            services.AddUEditorService();
 
             //批量注册服务
             //var dics = InterfaceBaseHelper.GetClassName("Bruke.BusinessService", t => t.Name.Contains("Service") && !t.IsInterface);
@@ -66,6 +69,8 @@ namespace MyDoc
             //    foreach (var Itype in dic.Value)
             //        services.AddScoped(Itype, dic.Key);//接口:实现
             //}
+
+            //服务注册
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(typeof(IBaseBusinessService<>), typeof(BaseBusinessService<>));
             services.AddScoped(typeof(IUserBusinessService), typeof(UserBussinesService));
@@ -91,6 +96,7 @@ namespace MyDoc
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+            app.UseStaticFiles("/upload");
 
             app.UseRouting();
             app.UseAuthentication();

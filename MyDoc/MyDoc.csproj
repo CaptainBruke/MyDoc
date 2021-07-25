@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\**" />
     <Compile Remove="wwwroot\third\home\**" />
+    <Content Remove="wwwroot\images\**" />
     <Content Remove="wwwroot\third\home\**" />
+    <EmbeddedResource Remove="wwwroot\images\**" />
     <EmbeddedResource Remove="wwwroot\third\home\**" />
+    <None Remove="wwwroot\images\**" />
     <None Remove="wwwroot\third\home\**" />
   </ItemGroup>
 
@@ -29,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Git\UEditor.Core\UEditor.Core\UEditor.Core.csproj" />
     <ProjectReference Include="..\Bruke.BussinesService\Bruke.BusinessService.csproj" />
     <ProjectReference Include="..\Bruke.Code\Bruke.Code.csproj" />
     <ProjectReference Include="..\Bruke.EntityFrameWork\Bruke.EntityFrameWork.csproj" />
@@ -39,7 +44,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +55,26 @@
     <None Include="wwwroot\third\login\js\snow.js" />
     <None Include="wwwroot\third\login\js\spop.min.js" />
     <None Include="wwwroot\third\login\js\verifyCode.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\attachment\attachment.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\background\background.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\charts\chart.config.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\charts\charts.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\emotion\emotion.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\help\help.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\image\image.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\internal.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\music\music.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\scrawl\scrawl.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\searchreplace\searchreplace.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\spechars\spechars.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\table\edittable.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\template\config.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\template\template.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\video\video.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <None Include="wwwroot\third\UEditor\dialogs\wordimage\imageUploader.swf" />
+    <None Include="wwwroot\third\UEditor\dialogs\wordimage\tangram.js" />
+    <None Include="wwwroot\third\UEditor\dialogs\wordimage\wordimage.js" />
     <None Include="wwwroot\third\UEditor\third-party\codemirror\codemirror.js" />
     <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\mootools-adapter.js" />
     <None Include="wwwroot\third\UEditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
