@@ -27,15 +27,15 @@
   /* 涂鸦图片上传配置项 */
   "scrawlActionName": "uploadscrawl", /* 执行上传涂鸦的action名称 */
   "scrawlFieldName": "upfile", /* 提交的图片表单名称 */
-  "scrawlPathFormat": "upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
+  "scrawlPathFormat": "upload/image/{yyyy}-{mm}-{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
   "scrawlMaxSize": 2048000, /* 上传大小限制，单位B */
-  "scrawlUrlPrefix": "/ueditor/net/", /* 图片访问路径前缀 */
+  "scrawlUrlPrefix": "", /* 图片访问路径前缀 */
   "scrawlInsertAlign": "none",
 
   /* 截图工具上传 */
   "snapscreenActionName": "uploadimage", /* 执行上传截图的action名称 */
   "snapscreenPathFormat": "upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
-  "snapscreenUrlPrefix": "/ueditor/net/", /* 图片访问路径前缀 */
+  "snapscreenUrlPrefix": "", /* 图片访问路径前缀 */
   "snapscreenInsertAlign": "none", /* 插入的图片浮动方式 */
 
   /* 抓取远程图片配置 */
@@ -51,7 +51,7 @@
   "videoActionName": "uploadvideo", /* 执行上传视频的action名称 */
   "videoFieldName": "upfile", /* 提交的视频表单名称 */
   "videoPathFormat": "upload/video/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
-  "videoUrlPrefix": "/ueditor/net/", /* 视频访问路径前缀 */
+  "videoUrlPrefix": "", /* 视频访问路径前缀 */
   "videoMaxSize": 102400000, /* 上传大小限制，单位B，默认100MB */
   "videoAllowFiles": [
     ".flv",
@@ -76,7 +76,7 @@
   /* 上传文件配置 */
   "fileActionName": "uploadfile", /* controller里,执行上传视频的action名称 */
   "fileFieldName": "upfile", /* 提交的文件表单名称 */
-  "filePathFormat": "/uploadFile/file/{yyyy}-{mm}-{dd}/{filename}_{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
+  "filePathFormat": "upload/file/{yyyy}-{mm}-{dd}/{filename}_{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
   "fileUrlPrefix": "", /* 文件访问路径前缀 */
   "fileMaxSize": 51200000, /* 上传大小限制，单位B，默认50MB */
   "fileAllowFiles": [
@@ -132,7 +132,7 @@
 
   /* 列出指定目录下的文件 */
   "fileManagerActionName": "listfile", /* 执行文件管理的action名称 */
-  "fileManagerListPath": "/uploadFile/file", /* 指定要列出文件的目录 */
+  "fileManagerListPath": "upload/file", /* 指定要列出文件的目录 */
   "fileManagerUrlPrefix": "", /* 文件访问路径前缀 */
   "fileManagerListSize": 20, /* 每次列出文件数量 */
   "fileManagerAllowFiles": [

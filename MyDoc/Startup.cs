@@ -37,6 +37,7 @@ namespace MyDoc
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
 
+            services.AddCors(option => option.AddPolicy("cors", policy => policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().AllowAnyOrigin()));
 
             ////设置身份验证服务
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -96,7 +97,6 @@ namespace MyDoc
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
-            app.UseStaticFiles("/upload");
 
             app.UseRouting();
             app.UseAuthentication();
