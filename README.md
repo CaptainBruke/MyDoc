@@ -17,7 +17,10 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 2. 修改[MyDoc]项目下,appsettings.Development.json中的连接字符串(参考appsettings.Example.json)。 **[必须]**
 
 ### 项目构建[镜像方式]
-此方式，只需有安装Linux内核版本的docker即可。比如Win10下，装过Docker Desktop [Window10 Docker安装地址](https://www.docker.com/products/docker-desktop)。比如在CentOS安装Docker,[Linux Docker安装教程](https://www.cnblogs.com/kingsonfu/p/11576797.html)。
+此方式，只需有安装Linux内核版本的docker即可。比如Win10下，装过Docker Desktop [Window10 Docker安装地址](https://www.docker.com/products/docker-desktop)。比如在CentOS安装Docker,[Linux Docker安装教程](https://www.cnblogs.com/kingsonfu/p/11576797.html)。  
+安装Mysql后，创建mydoc数据库，脚本如下：
+[sql脚本-mydoc.sql](Bruke.EntityFrameWork/mydoc.sql)
+
 #### 一、在Window下运行。
 1. 打开cmd 输入 `docker pull registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`回车后拉去最新镜像。
 2. 选择一个合适的文件夹，比如D:\Mydoc\,并在Mydoc文件夹下创建一个空文件夹`upload`,在Mydoc文件夹下创建一个文件`appsettings.json`,appsettings.json的内容如下，请把下面的数据库连接和密码，改为你的数据库连接和密码：
@@ -37,29 +40,17 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 }
 ```
 3.运行并挂载配置文件夹。命令如下：  
-`docker run --name mydoc -p 8080:80 -v D:\Mydoc\appsettings.json:/app/appsettings.json -v D:\Mydoc\upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`
+`docker run --name mydoc -p 8080:80 -v D:\Mydoc\appsettings.json:/app/appsettings.json -v D:\Mydoc\upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`  
 浏览器访问：http://localhost:8080/
 
 #### 二、在Linux下运行。
 1. `docker pull registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`回车后拉去最新镜像。
 2. 选择一个合适的文件夹，比如/opt/docker-mydoc,（没有文件夹的，自行创建文件夹）,并在docker-mydoc文件夹下创建一个空文件夹`upload`,在Mydoc文件夹下创建一个文件`appsettings.json`,appsettings.json的内容如下，请把下面的数据库连接和密码，改为你的数据库连接和密码：
 ```
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*",
-  "ConnectionStrings": {
-    "mydoc": "Server=120.*5.**.97;Database=mydoc;Uid=root;Pwd=*32***;pooling=false;charset=utf8"
-  }
-}
+和【一、Window下运行】章节的appsettings.json一样的
 ```
 3.运行并挂载配置文件夹。命令如下：  
-`docker run --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`
+`docker run --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`  
 浏览器访问：http://[你的IP地址]:83/
 
 ### 知识点
