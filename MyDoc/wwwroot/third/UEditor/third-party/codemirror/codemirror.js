@@ -960,7 +960,7 @@ var CodeMirror = (function() {
                         text = marker.text.replace("%N%", text != null ? text : "");
                     else if (text == null)
                         text = "\u00a0";
-                    html.push((marker && marker.style ? '<pre class="' + marker.style + '">' : "<pre>"), text);
+                    html.push((marker && marker.style ? '<pre class="' + marker.style + '"><code>' : "</code><pre>"), text);
                     for (var j = 1; j < line.height; ++j) html.push("<br/>&#160;");
                     html.push("</pre>");
                 }
@@ -1351,7 +1351,7 @@ var CodeMirror = (function() {
             if (x <= 0) return 0;
             var lineObj = getLine(line), text = lineObj.text;
             function getX(len) {
-                measure.innerHTML = "<pre><span>" + lineObj.getHTML(null, null, false, tabText, len) + "</span></pre>";
+                measure.innerHTML = "<pre><code><span>" + lineObj.getHTML(null, null, false, tabText, len) + "</span></code></pre>";
                 return measure.firstChild.firstChild.offsetWidth;
             }
             var from = 0, fromX = 0, to = text.length, toX;
@@ -1383,9 +1383,9 @@ var CodeMirror = (function() {
                 var end = line.text.indexOf(" ", ch + 2);
                 extra = htmlEscape(line.text.slice(ch + 1, end < 0 ? line.text.length : end + (ie ? 5 : 0)));
             }
-            measure.innerHTML = "<pre>" + line.getHTML(null, null, false, tabText, ch) +
+            measure.innerHTML = "<pre><code>" + line.getHTML(null, null, false, tabText, ch) +
                 '<span id="CodeMirror-temp-' + tempId + '">' + htmlEscape(line.text.charAt(ch) || " ") + "</span>" +
-                extra + "</pre>";
+                extra + "</code></pre>";
             var elt = document.getElementById("CodeMirror-temp-" + tempId);
             var top = elt.offsetTop, left = elt.offsetLeft;
             // Older IEs report zero offsets for spans directly after a wrap
@@ -2230,7 +2230,7 @@ var CodeMirror = (function() {
         getHTML: function(sfrom, sto, includePre, tabText, endAt) {
             var html = [], first = true;
             if (includePre)
-                html.push(this.className ? '<pre class="' + this.className + '">': "<pre>");
+                html.push(this.className ? '<pre class="' + this.className + '"><code>': "</code><pre>");
             function span(text, style) {
                 if (!text) return;
                 // Work around a bug where, in some compat modes, IE ignores leading spaces

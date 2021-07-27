@@ -96,7 +96,12 @@ $("#apiPathTree").on("click", ".show-doc", function () {
         success: function (result) {
             if (result.status == 0) {
                 $("#docTitleInput").val(result.data.title);
+                $("#editor").hide();
+                ue.hide();
                 ue.setContent(`${result.data.content}`);
+                $("#editorShow").show();
+                $("#editorShow").html(result.data.content);
+                hljs.initHighlightingOnLoad();
                 $("#articleId").val(id);
                 $("#bookId").val(result.data.book_id);
             }
@@ -369,17 +374,36 @@ function DeleteArticle(articleId) {
     });
 }
 
-function EditArticleButton() {
+function EditArticleButton(button) {
+    $button = $(button);
+    isEdit = $button.attr("data-edit");
+    //由视图模式-->编辑模式
+    if (isEdit == "0") {
+        $button.attr("data-edit", "1")
+        $("#editor").show();
+        ue.show();
+        $("#editorShow").hide();
+        $button.val("视图模式");
+    }
+    else {
+        $button.attr("data-edit", "0")
+        ue.hide();
+        $("#editor").hide();
+        $("#editorShow").show();
+        hljs.initHighlightingOnLoad();
+        $button.val("编辑模式");
+    }
 
 }
 
+//保存文章的按钮
 function SaveArticleButton() {
     //$("#docTitleInput").val(result.data.title);
     //ue.setContent(`${result.data.content}`);
     //$("#articleId").val(id);
     //$("#bookId").val(result.data.book_id);
     var data = { id: $("#articleId").val(), title: $("#docTitleInput").val(), content: ue.getContent(), book_id: $("#bookId").val() };
-    if (data.id == "" || data.title == "" || data.book_id=="") {
+    if (data.id == "" || data.title == "" || data.book_id == "") {
         layer.msg(`未能正确保存`);
         return false;
     }

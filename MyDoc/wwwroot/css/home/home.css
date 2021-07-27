@@ -1,0 +1,22 @@
+﻿#docTitleInput {
+    width: 500px;
+    border: 1px solid #797979;
+    border-radius: 3px;
+    font-size: 16px;
+    height: 33px;
+}
+.mybtn {
+    font-size: 17px;
+}
+
+#editor {
+    width: 100%;
+    height: 700px;
+}
+#editorShow {
+    width: 100%;
+    min-height: 700px;
+    padding: 9px;
+    border: 1px solid #dcc4c4;
+    border-radius: 4px;
+}

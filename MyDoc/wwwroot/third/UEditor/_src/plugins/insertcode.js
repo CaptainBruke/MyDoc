@@ -158,9 +158,9 @@ UE.plugins["insertcode"] = function() {
           "inserthtml",
           '<pre id="coder"class="brush:' +
             lang +
-            ';toolbar:false">' +
+            ';toolbar:false"><code>' +
             code +
-            "</pre>",
+            "</code></pre>",//id="coder"class="brush:'+lang+';toolbar:false">'
           true
         );
 

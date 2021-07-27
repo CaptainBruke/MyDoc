@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+<title>代码高亮显示测试</title>
+ 
+<!-- 引入下面三条 -->
+<link rel="stylesheet" href="styles/base16/tomorrow-night.min.css">
+<script src="highlight.js"></script>
+<script src="languages/javascript.min.js"></script>
+<script src="languages/csharp.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+ 
+</head>
+</style>
+<body>
+	<!-- 代码高亮显示格式：<pre><code>你的代码</code></pre> -->
+ 
+	<pre><code>/**
+ * 二维数组按照指定字段进行排序
+ * @params array $array 需要排序的数组
+ * @params string $field 排序的字段
+ * @params string $sort 排序顺序标志 SORT_DESC 降序；SORT_ASC 升序
+ */
+function arraySequence($array, $field, $sort = 'SORT_DESC') {
+    $arrSort = array();
+    foreach ($array as $uniqid => $row) {
+        foreach ($row as $key => $value) {
+            $arrSort[$key][$uniqid] = $value;
+        }
+    }
+    array_multisort($arrSort[$field], constant($sort), $array);
+    return $array;
+}</code></pre>
+
+
+<pre>
+    <code>
+    public Task<string> GetCiphertextAsync(string password, string salt = null)
+        {
+            return Task.Run(() =>
+            {
+                var ciphertext = string.Empty;
+                if (!string.IsNullOrWhiteSpace(password))
+                {
+                    ciphertext = SecurityHelper.MD5Encrypt(password, Encoding.UTF8);
+                    if (!string.IsNullOrWhiteSpace(salt))
+                        ciphertext = SecurityHelper.MD5Encrypt(password + salt, Encoding.UTF8);
+                }
+                return ciphertext;
+            });
+        }
+    </code>
+</pre>
+</body>
+</html>
