@@ -40,7 +40,7 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 }
 ```
 3.运行并挂载配置文件夹。命令如下：  
-`docker run --name mydoc -p 8080:80 -v D:\Mydoc\appsettings.json:/app/appsettings.json -v D:\Mydoc\upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`  
+`docker run --name mydoc -p 8080:80 -v D:\Mydoc\appsettings.json:/app/appsettings.json -v D:\Mydoc\upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`  
 浏览器访问：http://localhost:8080/
 
 #### 二、在Linux下运行。
@@ -50,7 +50,7 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 和【一、Window下运行】章节的appsettings.json一样的
 ```
 3.运行并挂载配置文件夹。命令如下：  
-`docker run --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:1`  
+`docker run --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`  
 浏览器访问：http://[你的IP地址]:83/
 
 ### 知识点
