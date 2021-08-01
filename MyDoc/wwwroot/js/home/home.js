@@ -109,14 +109,14 @@ function ShowDoc(id) {
                 $("#articleId").val(id);
                 $("#bookId").val(result.data.book_id);
 
-                //视图模式
+                //浏览
                 $button = $("#editArticle");
                 $button.attr("data-edit", "0")
                 ue.hide();
                 $("#editor").hide();
                 $("#editorShow").show();
                 hljs.initHighlightingOnLoad();
-                $button.val("编辑模式");
+                $button.val("编辑");
             }
             else {
                 spop({
@@ -352,13 +352,13 @@ function CreatArticle(bookId, type) {
                             $("#articleId").val(result.data.id);
                             $("#bookId").val(result.data.book_id);
 
-                            //编辑模式
+                            //编辑
                             $button = $("#editArticle");
                             $button.attr("data-edit", "1")
                             ue.show();
                             $("#editor").show();
                             $("#editorShow").hide();
-                            $button.val("视图模式");
+                            $button.val("浏览");
 
                             OpenMenu();
 
@@ -427,13 +427,13 @@ function DeleteArticle(articleId) {
 function EditArticleButton(button) {
     $button = $(button);
     isEdit = $button.attr("data-edit");
-    //由视图模式-->编辑模式
+    //由浏览-->编辑
     if (isEdit == "0") {
         $button.attr("data-edit", "1")
         $("#editor").show();
         ue.show();
         $("#editorShow").hide();
-        $button.val("视图模式");
+        $button.val("浏览");
     }
     else {
         $button.attr("data-edit", "0")
@@ -441,7 +441,7 @@ function EditArticleButton(button) {
         $("#editor").hide();
         $("#editorShow").show();
         hljs.initHighlightingOnLoad();
-        $button.val("编辑模式");
+        $button.val("编辑");
     }
 
 }

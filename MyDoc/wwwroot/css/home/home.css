@@ -1,12 +1,15 @@
 ﻿#docTitleInput {
     width: 500px;
-    border: 1px solid #797979;
+    border: 1px solid #cfcfcf;
     border-radius: 3px;
     font-size: 16px;
     height: 33px;
 }
 .mybtn {
     font-size: 17px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    color: white;
 }
 
 #editor {
@@ -17,6 +20,13 @@
     width: 100%;
     min-height: 700px;
     padding: 9px;
-    border: 1px solid #dcc4c4;
+    border: 1px solid #cfcfcf;
     border-radius: 4px;
+}
+
+.bgclor-green {
+    background-color: green;
+}
+.bgclor-blue {
+    background-color: #3280fc;
 }
