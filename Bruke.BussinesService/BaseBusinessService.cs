@@ -4,6 +4,7 @@ using Bruke.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,19 +18,19 @@ namespace Bruke.BusinessService
             _dbContext = dbContext;
         }
 
-        public Task<TEntity> FindAsync(Func<TEntity, bool> func)
+        public Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> func)
         {
-            var task = Task.Run(() => _dbContext.Set<TEntity>().AsQueryable<TEntity>().Where(func).FirstOrDefault());
+            var task = Task.Run(() => _dbContext.Set<TEntity>().SingleOrDefault(func));
             return task;
         }
 
-        public Task<IEnumerable<TEntity>> FindListAsync(Func<TEntity, bool> func)
+        public Task<IQueryable<TEntity>> FindListAsync(Expression<Func<TEntity, bool>> func)
         {
-            var task = Task.Run(() => _dbContext.Set<TEntity>().AsQueryable<TEntity>().Where(func));
+            var task = Task.Run(() => _dbContext.Set<TEntity>().Where(func));
             return task;
         }
 
-        public Task<long> CountAsync<TOrderBy>(Func<TEntity, bool> func)
+        public Task<long> CountAsync<TOrderBy>(Expression<Func<TEntity, bool>> func)
         {
             var task = Task.Run(() =>
             {
@@ -39,7 +40,7 @@ namespace Bruke.BusinessService
             return task;
         }
 
-        public Task<IEnumerable<TEntity>> GetPageListAsync<TOrderBy>(Func<TEntity, bool> func, Func<TEntity, TOrderBy> orderBy, int pageIndex, int pageSize, SortOrder sortOrder = SortOrder.Ascending)
+        public Task<IQueryable<TEntity>> GetPageListAsync<TOrderBy>(Expression<Func<TEntity, bool>> func, Expression<Func<TEntity, TOrderBy>> orderBy, int pageIndex, int pageSize, SortOrder sortOrder = SortOrder.Ascending)
         {
             var task = Task.Run(() =>
             {
@@ -54,9 +55,9 @@ namespace Bruke.BusinessService
             return task;
         }
 
-        public async Task<int> DeleteAsync(Func<TEntity, bool> func)
+        public async Task<int> DeleteAsync(Expression<Func<TEntity, bool>> func)
         {
-            var models = _dbContext.Set<TEntity>().AsQueryable<TEntity>().Where(func);
+            var models = _dbContext.Set<TEntity>().Where(func);
             if (models != null)
             {
                 _dbContext.Set<TEntity>().RemoveRange(models);
@@ -64,5 +65,6 @@ namespace Bruke.BusinessService
             }
             return 0;
         }
+
     }
 }

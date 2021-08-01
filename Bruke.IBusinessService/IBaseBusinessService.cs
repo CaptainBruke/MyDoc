@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Bruke.Model;
@@ -13,14 +15,14 @@ namespace Bruke.IBusinessService
         /// </summary>
         /// <param name="func"></param>
         /// <returns></returns>
-        Task<TEntity> FindAsync(Func<TEntity, bool> func);
+        Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> func);
 
         /// <summary>
         /// 获取实体集合
         /// </summary>
         /// <param name="func"></param>
         /// <returns></returns>
-        Task<IEnumerable<TEntity>> FindListAsync(Func<TEntity, bool> func);
+        Task<IQueryable<TEntity>> FindListAsync(Expression<Func<TEntity, bool>> func);
 
         /// <summary>
         /// 获取总数
@@ -28,7 +30,7 @@ namespace Bruke.IBusinessService
         /// <typeparam name="TOrderBy"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
-        Task<long> CountAsync<TOrderBy>(Func<TEntity, bool> func);
+        Task<long> CountAsync<TOrderBy>(Expression<Func<TEntity, bool>> func);
 
         /// <summary>
         /// 获取分页
@@ -40,14 +42,14 @@ namespace Bruke.IBusinessService
         /// <param name="pageSize"></param>
         /// <param name="sortOrder"></param>
         /// <returns></returns>
-        Task<IEnumerable<TEntity>> GetPageListAsync<TOrderBy>(Func<TEntity, bool> func, Func<TEntity, TOrderBy> orderBy, int pageIndex, int pageSize, SortOrder sortOrder = SortOrder.Ascending);
+        Task<IQueryable<TEntity>> GetPageListAsync<TOrderBy>(Expression<Func<TEntity, bool>> func, Expression<Func<TEntity, TOrderBy>> orderBy, int pageIndex, int pageSize, SortOrder sortOrder = SortOrder.Ascending);
 
         /// <summary>
         /// 删除一批实体
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<int> DeleteAsync(Func<TEntity, bool> func);
+        Task<int> DeleteAsync(Expression<Func<TEntity, bool>> func);
     }
 
     /// <summary>

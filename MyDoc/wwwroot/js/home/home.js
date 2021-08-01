@@ -36,7 +36,7 @@ function FirstTreeHtml(data) {
                 <li data-idx="${firstIndex}" data-id="${item.id}" class="has-list">
                     <i class="list-toggle icon"></i>
                     <a href="#" data-type="${item.type}" data-id="${item.id}">${item.name}</a>
-                    <ul>
+                    <ul class="book" data-type="${item.type}" data-id="${item.id}">
                         ${SecondTreeHtml(firstIndex, item.children)}
                         ${ArticleTreeHtml(firstIndex, 0, item.children)}
                     </ul>
@@ -56,8 +56,8 @@ function SecondTreeHtml(firstIndex, data2) {
         html += `
                   <li data-idx="${secondIndex}" data-id="${firstIndex}-${secondIndex}" class="has-list">
                       <i class="list-toggle icon"></i>
-                      <a href="#" data-type="${item.type}" data-id="${item.id}">${item.name}</a>
-                      <ul data-idx="${secondIndex}">${ArticleTreeHtml(firstIndex, secondIndex, item.children)}</ul>
+                      <a href="#" data-type="${item.type}" data-id="${item.id}">${item.name}(${item.children.length})</a>
+                      <ul class="book" data-type="${item.type}" data-id="${item.id}">${ArticleTreeHtml(firstIndex, secondIndex, item.children)}</ul>
                   </li>
 `;
     }
@@ -73,7 +73,7 @@ function ArticleTreeHtml(firstIndex, secondIndex, data3) {
         var articleIndex = i + 1;
         html += `
               <li m-id="${firstIndex}_${secondIndex}_${articleIndex}" data-idx="${articleIndex}" data-id="${firstIndex}-${secondIndex}-${articleIndex}">
-                  <a style="color:red;" href="#" class="show-doc" data-type="${item.type}" data-id="${item.id}">${item.name}<span></span></a>
+                  <a style="color:red;" href="#" class="show-doc article" data-type="${item.type}" data-id="${item.id}">${item.name}<span></span></a>
               </li>
 `;
     }
@@ -86,9 +86,13 @@ function ArticleTreeHtml(firstIndex, secondIndex, data3) {
  * api文档最后的节点点击，展示文档页面
  */
 $("#apiPathTree").on("click", ".show-doc", function () {
+    var id = $(this).data("id");
+    ShowDoc(id);
+});
+
+function ShowDoc(id) {
     $(".tab-page").hide();
     $(".tab-document").show();
-    var id = $(this).data("id");
     $.ajax({
         type: "post",
         url: `/Article/Get/${id}`,
@@ -104,6 +108,15 @@ $("#apiPathTree").on("click", ".show-doc", function () {
                 hljs.initHighlightingOnLoad();
                 $("#articleId").val(id);
                 $("#bookId").val(result.data.book_id);
+
+                //视图模式
+                $button = $("#editArticle");
+                $button.attr("data-edit", "0")
+                ue.hide();
+                $("#editor").hide();
+                $("#editorShow").show();
+                hljs.initHighlightingOnLoad();
+                $button.val("编辑模式");
             }
             else {
                 spop({
@@ -120,8 +133,7 @@ $("#apiPathTree").on("click", ".show-doc", function () {
         }
 
     });
-});
-
+}
 
 //右键打开菜单
 function OpenMenu() {
@@ -186,7 +198,7 @@ function GetOpenMenuHtml(type, id) {
             openMenuHtml = `	
                      <ul>
                     	   <li onclick="CreatBook(${id});"><span class="iconfont icon-add-circle"></span>创建笔记本</li>
-                    	   <li onclick="CreatArticle(${id});"><span class="iconfont icon-add-circle"></span>添加笔记</li>
+                    	   <li onclick="CreatArticle(${id},${type});"><span class="iconfont icon-add-circle"></span>添加笔记</li>
                     	   <li onclick="EditBook(${id});"><span class="iconfont icon-edit"></span>修改</li>
                     	   <li onclick="DeleteBook(${id});"><span class="iconfont icon-ashbin"></span>删除</li>
                      </ul>`;
@@ -194,7 +206,7 @@ function GetOpenMenuHtml(type, id) {
         case "2":
             openMenuHtml = `	
                      <ul>
-                    	   <li onclick="CreatArticle(${id});"><span class="iconfont icon-add-circle"></span>添加笔记</li>
+                    	   <li onclick="CreatArticle(${id},${type});"><span class="iconfont icon-add-circle"></span>添加笔记</li>
                     	   <li onclick="EditBook(${id});"><span class="iconfont icon-edit"></span>修改</li>
                     	   <li onclick="DeleteBook(${id});"><span class="iconfont icon-ashbin"></span>删除</li>
                      </ul>`;
@@ -296,7 +308,7 @@ function EditBook(bookId) {
 
 }
 
-function CreatArticle(bookId) {
+function CreatArticle(bookId, type) {
     layer.ready(function () {
         var index = layer.open({
             type: 0,
@@ -317,7 +329,38 @@ function CreatArticle(bookId) {
                     data: { title: title, content: "", book_id: bookId },
                     success: function (result) {
                         if (result.status == 0) {
-                            GetBookTree();
+                            //GetBookTree();
+                            $(".book").each(function (index, item) {
+                                if ($(item).data("id") == bookId && $(item).data("type") == type) {
+                                    $(item).prepend(GetArticleHtml(result.data.id, result.data.title));
+                                }
+                            });
+                            $(".show-doc").each(function (index, item) {
+                                if ($(item).data("id") == result.data.id) {
+
+                                    $(item).focus();
+                                }
+                            });
+
+
+                            $("#docTitleInput").val(result.data.title);
+                            $("#editor").show();
+                            ue.show();
+                            ue.setContent(``);
+                            $("#editorShow").hide();
+                            $("#editorShow").html("");
+                            $("#articleId").val(result.data.title);
+                            $("#bookId").val(result.data.book_id);
+
+                            //编辑模式
+                            $button = $("#editArticle");
+                            $button.attr("data-edit", "1")
+                            ue.show();
+                            $("#editor").show();
+                            $("#editorShow").hide();
+                            $button.val("视图模式");
+
+
                             layer.close(index);
                         }
                         else {
@@ -362,7 +405,12 @@ function DeleteArticle(articleId) {
                 data: { id: articleId },
                 success: function (result) {
                     if (result.status == 0) {
-                        GetBookTree();
+                        //GetBookTree();
+                        $(".article").each(function (index, item) {
+                            if ($(item).data("id") == articleId) {
+                                $(item).remove();
+                            }
+                        });
                         layer.closeAll();
                     }
                     else {
@@ -432,3 +480,16 @@ document.onkeydown = function () {
         event.preventDefault();
     }
 }
+
+//通用html
+
+//文章html
+function GetArticleHtml(id, title) {
+    var html = `<li m-id="" data-id="" data-id="">
+                  <a style="color:red;" href="#" class="show-doc article" data-type="3" data-id="${id}">${title}<span></span></a>
+              </li>`;
+    return html;
+}
+//二级目录UL html
+
+//一级目录UL html
