@@ -39,18 +39,20 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
   }
 }
 ```
-3.运行并挂载配置文件夹。命令如下：  
+3.运行并挂载配置文件夹。CMD命令如下(有问题的话，检查挂载路径)：  
 `docker run --name mydoc -p 8080:80 -v D:\Mydoc\appsettings.json:/app/appsettings.json -v D:\Mydoc\upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`  
 浏览器访问：http://localhost:8080/
 
 #### 二、在Linux下运行。
 1. `docker pull registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`回车后拉去最新镜像。
-2. 选择一个合适的文件夹，比如/opt/docker-mydoc,（没有文件夹的，自行创建文件夹）,并在docker-mydoc文件夹下创建一个空文件夹`upload`,在Mydoc文件夹下创建一个文件`appsettings.json`,appsettings.json的内容如下，请把下面的数据库连接和密码，改为你的数据库连接和密码：
+2. 选择一个合适的文件夹，比如`/opt/docker-mydoc/wwwroot/`,（没有文件夹的，自行创建文件夹）,并在`/opt/docker-mydoc`文件夹下创建一个文件`appsettings.json`,appsettings.json的内容如下，请把下面的数据库连接和密码，改为你的数据库连接和密码：
 ```
 和【一、Window下运行】章节的appsettings.json一样的
 ```
 3.运行并挂载配置文件夹。命令如下：  
-`docker run --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/upload:/app/wwwroot/upload -d  registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`  
+```
+docker run --restart=always --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettings.json:/app/appsettings.json -v /opt/docker-mydoc/wwwroot/upload:/app/wwwroot/upload -d registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3
+```  
 浏览器访问：http://[你的IP地址]:83/
 
 ### 知识点
@@ -80,4 +82,5 @@ Docker 更快捷发布
 > * 项目镜像打包到阿里镜像仓库，一句docker pull,docker run 即可搭建MyDoc  (已完成)
 > * 支持代码高亮显示，默认配置为js,css,C#,java,SQL等语法高亮，背景色为深色(已完成)
 > * 代码高亮语法语言可配置化，代码背景色可配置化。
+> * 使用docker-compose:数据库+项目，真正一套龙服务。只需copy一个文件到服务器，在服务器执行这个文件即可完成整个项目的搭建。
 
