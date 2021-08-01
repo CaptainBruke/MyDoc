@@ -3,12 +3,13 @@
 
 });
 
-function GetBookTree() {
+function GetBookTree(searchKey) {
 
     $.ajax({
         type: "post",
         url: "/Book/GetBookTree",
         dataType: "json",
+        data: { "searchKey": searchKey},
         success: function (data) {
             var treeHtml = FirstTreeHtml(data);
             $ul = $("#apiPathTree>ul");
@@ -495,3 +496,20 @@ function GetArticleHtml(id, title) {
 //二级目录UL html
 
 //一级目录UL html
+
+
+
+//搜索
+$("#searchDocBt").click(function () {
+    var searchKey = $("#searchDocInput").val();
+    GetBookTree(searchKey)
+});
+/**
+ * 搜索框回车事件
+ */
+$("#searchDocInput").keyup(function (e) {
+    if (e.keyCode == 13) {
+        var searchKey = $("#searchDocInput").val();
+        GetBookTree(searchKey)
+    }
+});

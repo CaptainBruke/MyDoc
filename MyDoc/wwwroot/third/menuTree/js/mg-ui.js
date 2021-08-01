@@ -133,16 +133,16 @@ $("input[name='autoFillParam']").change(function() {
  * 搜索框回车事件
  */
 $("#searchDocInput").keyup(function(e) {  
-	if (e.keyCode == 13) {
-		searchDoc();
-	}
+	//if (e.keyCode == 13) {
+	//	searchDoc();
+	//}
 });
 
 /**
  * 搜索按钮点击
  */
 $("#searchDocBt").click(function(){
-	searchDoc();
+	//searchDoc();
 });
 
 /**

@@ -12,6 +12,6 @@ namespace Bruke.IBusinessService
         Task<AjaxResult> DeleteAsync(int id, UserIdentity user);
         Task<AjaxResult> EditAsync(Book_Edit_Input_Model model, UserIdentity user);
         Task<AjaxResult> GetAsync(int id, UserIdentity user);
-        Task<List<Book_Tree_Output_Model>> GetBookTreeAsync(UserIdentity user);
+        Task<List<Book_Tree_Output_Model>> GetBookTreeAsync(UserIdentity user,string searchKey);
     }
 }

@@ -26,10 +26,10 @@ namespace MyDoc.Controllers
             _bookBusinessService = bookBusinessService;
             _userBusinessService = userBusinessService;
         }
-        public async Task<IActionResult> GetBookTree()
+        public async Task<IActionResult> GetBookTree(string searchKey)
         {
             var user = await _userBusinessService.GetCurrent(_httpContextAccessor.HttpContext.User.Claims);
-            var result = await _bookBusinessService.GetBookTreeAsync(user);
+            var result = await _bookBusinessService.GetBookTreeAsync(user, searchKey);
             return Json(result);
         }
 

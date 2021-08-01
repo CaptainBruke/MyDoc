@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -49,7 +50,7 @@ namespace Bruke.BusinessService
 
         public async Task<AjaxResult> DeleteAsync(int id, UserIdentity user)
         {
-            if (_dbContext.books.Any(a => a.parent_id== id && a.user_id == user.UserId))
+            if (_dbContext.books.Any(a => a.parent_id == id && a.user_id == user.UserId))
             {
                 return new AjaxResult() { status = ResultType.error, message = "存在子级的笔记本,请先删除子级笔记本" };
             }
@@ -85,7 +86,7 @@ namespace Bruke.BusinessService
             return new AjaxResult() { data = dbModel };
         }
 
-        public async Task<List<Book_Tree_Output_Model>> GetBookTreeAsync(UserIdentity user)
+        public async Task<List<Book_Tree_Output_Model>> GetBookTreeAsync(UserIdentity user, string searchKey)
         {
             var books = (await FindListAsync(w => w.user_id == user.UserId))
                 .OrderBy(o => o.name)
@@ -98,14 +99,18 @@ namespace Bruke.BusinessService
                 .ToList();
 
             var articles = (await _articleBusinessService.FindListAsync(w => w.user_id == user.UserId))
-                .OrderByDescending(o => o.create_date_time)
-                .Select(s => new
-                {
-                    s.id,
-                    s.title,
-                    s.book_id
-                })
-                .ToList();
+            .OrderByDescending(o => o.create_date_time)
+            .Select(s => new
+            {
+                s.id,
+                s.title,
+                s.book_id
+            })
+            .ToList();
+
+            //这里应该去查数据库，不应该在内存上操作。因为上面的条件，我还没封装，用不了
+            if (!string.IsNullOrWhiteSpace(searchKey))
+                articles = articles.Where(w => w.title.ToUpper().Contains(searchKey.ToUpper())).ToList();
 
             var bookTrees = new List<Book_Tree_Output_Model>();
             //一级目录
@@ -140,7 +145,9 @@ namespace Bruke.BusinessService
                             type = BookTreeType.Article
                         });
                     }
-                    bookTree.children.Add(secondBookTree);
+                    //搜索的时候，移除没有文章的目录
+                    if (string.IsNullOrWhiteSpace(searchKey)||(!string.IsNullOrWhiteSpace(searchKey)&& secondBookTree.children.Count>0))
+                        bookTree.children.Add(secondBookTree);
                 }
 
                 //一级目录的文章
@@ -154,7 +161,9 @@ namespace Bruke.BusinessService
                     });
                 }
 
-                bookTrees.Add(bookTree);
+                //搜索的时候，移除没有文章的目录
+                if (string.IsNullOrWhiteSpace(searchKey) || (!string.IsNullOrWhiteSpace(searchKey) && bookTree.children.Count > 0))
+                    bookTrees.Add(bookTree);
             }
 
             return bookTrees;
