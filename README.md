@@ -22,7 +22,7 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 [sql脚本-mydoc.sql](Bruke.EntityFrameWork/mydoc.sql)
 
 #### 一、在Window下运行。
-1. 打开cmd 输入 `docker pull registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:2`回车后拉去最新镜像。
+1. 打开cmd 输入 `docker pull registry.cn-shenzhen.aliyuncs.com/bruke123/mydoc:3`回车后拉去最新镜像。
 2. 选择一个合适的文件夹，比如D:\Mydoc\,并在Mydoc文件夹下创建一个空文件夹`upload`,在Mydoc文件夹下创建一个文件`appsettings.json`,appsettings.json的内容如下，请把下面的数据库连接和密码，改为你的数据库连接和密码：
 ```
 {
@@ -78,4 +78,6 @@ Docker 更快捷发布
 > * 使用EF Code First 无需使用sql进行创建数据库
 > * ASP.Net 3.1 升级为 .Net 5
 > * 项目镜像打包到阿里镜像仓库，一句docker pull,docker run 即可搭建MyDoc  (已完成)
+> * 支持代码高亮显示，默认配置为js,css,C#,java,SQL等语法高亮，背景色为深色(已完成)
+> * 代码高亮语法语言可配置化，代码背景色可配置化。
 

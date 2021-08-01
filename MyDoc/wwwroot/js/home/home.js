@@ -349,7 +349,7 @@ function CreatArticle(bookId, type) {
                             ue.setContent(``);
                             $("#editorShow").hide();
                             $("#editorShow").html("");
-                            $("#articleId").val(result.data.title);
+                            $("#articleId").val(result.data.id);
                             $("#bookId").val(result.data.book_id);
 
                             //编辑模式
@@ -359,6 +359,8 @@ function CreatArticle(bookId, type) {
                             $("#editor").show();
                             $("#editorShow").hide();
                             $button.val("视图模式");
+
+                            OpenMenu();
 
 
                             layer.close(index);
