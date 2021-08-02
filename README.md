@@ -17,7 +17,7 @@ ASP.NET Core 3.1 + EF Core + UEditor + JQuery
 2. 修改[MyDoc]项目下,appsettings.Development.json中的连接字符串(参考appsettings.Example.json)。 **[必须]**
 
 ### 项目构建[镜像方式]
-此方式，只需有安装Linux内核版本的docker即可。比如Win10下，装过Docker Desktop [Window10 Docker安装地址](https://www.docker.com/products/docker-desktop)。比如在CentOS安装Docker,[Linux Docker安装教程](https://www.cnblogs.com/kingsonfu/p/11576797.html)。  
+此方式，只需有安装Linux内核版本的docker即可。比如Win10下，装过Docker Desktop ([Window10 Docker安装地址](https://www.docker.com/products/docker-desktop))。比如在CentOS安装Docker,([Linux Docker安装教程](https://www.cnblogs.com/kingsonfu/p/11576797.html))。  
 安装Mysql后，创建mydoc数据库，脚本如下：
 [sql脚本-mydoc.sql](Bruke.EntityFrameWork/mydoc.sql)
 
@@ -57,9 +57,9 @@ docker run --restart=always --name mydoc -p 83:80 -v /opt/docker-mydoc/appsettin
 
 ### 知识点
 > * [ASP.NET Core入门](https://docs.microsoft.com/zh-cn/aspnet/core/getting-started/?view=aspnetcore-2.2&tabs=windows)  
-ASP.NET Core入门必备。
+`ASP.NET Core`入门必备。
 > * [EF Core入门](https://docs.microsoft.com/zh-cn/ef/core/get-started/)  
-搭配上ASP.NET Core入门，这两个文档涵盖了项目中所有的知识点：面向接口编程，依赖注入，异步编程等。
+搭配上`ASP.NET Core`入门，这两个文档涵盖了项目中所有的知识点：面向接口编程，依赖注入，异步编程等。
 > * [AutoMapper](https://automapper.readthedocs.io/en/latest/)  
 对象的映射工具。
 > * [Pomelo.EntityFrameworkCore.MySql](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)  
@@ -78,9 +78,10 @@ Docker 更快捷发布
 
 ### 后期计划：
 > * 使用EF Code First 无需使用sql进行创建数据库
-> * ASP.Net 3.1 升级为 .Net 5
+> * `ASP.Net 3.1` 升级为 `.Net 5`
 > * 项目镜像打包到阿里镜像仓库，一句docker pull,docker run 即可搭建MyDoc  (已完成)2021-7-27
 > * 支持代码高亮显示，默认配置为js,css,C#,java,SQL等语法高亮，背景色为深色(已完成)2021-8-2
-> * 代码高亮语法语言可配置化，代码背景色可配置化。
+> * 笔记目录样式可配置化,代码高亮语法语言可配置化，代码背景色可配置化。
 > * 使用docker-compose:数据库+项目，真正一套龙服务。只需copy一个文件到服务器，在服务器执行这个文件即可完成整个项目的搭建。
+> * 账号绑定手机，重置密码等功能。
 
